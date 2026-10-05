@@ -29,19 +29,19 @@ function validate(values: ContactFormValues): ContactFormErrors {
   const errors: ContactFormErrors = {};
 
   if (values.name.trim().length < 2) {
-    errors.name = "Please enter your full name.";
+    errors.name = "Por favor, ingrese su nombre completo.";
   }
   if (!EMAIL_PATTERN.test(values.email.trim())) {
-    errors.email = "Please enter a valid email address.";
+    errors.email = "Por favor, ingrese un correo electrónico válido.";
   }
   if (values.phone.trim() && !PHONE_PATTERN.test(values.phone.trim())) {
-    errors.phone = "Please enter a valid phone number.";
+    errors.phone = "Por favor, ingrese un número de teléfono válido.";
   }
   if (!values.department) {
-    errors.department = "Please choose a department.";
+    errors.department = "Por favor, seleccione un departamento.";
   }
   if (values.message.trim().length < 10) {
-    errors.message = "Please share a few details (at least 10 characters).";
+    errors.message = "Por favor, comparta más detalles (al menos 10 caracteres).";
   }
 
   return errors;
@@ -61,7 +61,6 @@ export function ContactForm({ departments }: ContactFormProps) {
     const next = { ...values, [field]: event.target.value };
     setValues(next);
 
-    // After the first submit attempt, re-validate live so errors clear as the user fixes them.
     if (hasSubmitted) {
       setErrors(validate(next));
     }
@@ -83,7 +82,6 @@ export function ContactForm({ departments }: ContactFormProps) {
     }
 
     setStatus("submitting");
-    // Simulated network request. Replace with a Server Action or API call when a backend is available.
     await new Promise((resolve) => setTimeout(resolve, SIMULATED_LATENCY_MS));
     setStatus("success");
   };
@@ -100,15 +98,14 @@ export function ContactForm({ departments }: ContactFormProps) {
       <Card padding="lg" className="flex h-full flex-col items-center justify-center gap-4 text-center">
         <IconBadge icon={CircleCheck} tone="emerald" size="lg" />
         <div role="status" aria-live="polite" className="flex flex-col gap-2">
-          <h3 className="text-xl font-semibold text-slate-900">Message sent</h3>
+          <h3 className="text-xl font-semibold text-slate-900">Mensaje enviado</h3>
           <p className="max-w-sm text-sm leading-6 text-slate-600">
-            Thank you, {values.name.trim().split(" ")[0]}. Our patient care team will contact you at{" "}
-            <span className="font-medium text-slate-900">{values.email.trim()}</span> within one
-            business day.
+            Gracias, {values.name.trim().split(" ")[0]}. Nuestro equipo de atención al paciente se pondrá en contacto con usted en{" "}
+            <span className="font-medium text-slate-900">{values.email.trim()}</span> dentro de un día hábil.
           </p>
         </div>
         <Button variant="outline" onClick={handleReset}>
-          Send another message
+          Enviar otro mensaje
         </Button>
       </Card>
     );
@@ -122,23 +119,23 @@ export function ContactForm({ departments }: ContactFormProps) {
       <form ref={formRef} noValidate onSubmit={handleSubmit} aria-labelledby="contact-form-title" className="flex flex-col gap-5">
         <div className="flex flex-col gap-1">
           <h3 id="contact-form-title" className="text-lg font-semibold text-slate-900">
-            Request an appointment
+            Solicitar una cita
           </h3>
-          <p className="text-sm text-slate-500">Fields marked optional can be left blank.</p>
+          <p className="text-sm text-slate-500">Los campos marcados como opcionales pueden dejarse en blanco.</p>
         </div>
 
         <p aria-live="polite" className="sr-only">
           {hasSubmitted && errorCount > 0
-            ? `The form has ${errorCount} error${errorCount > 1 ? "s" : ""}.`
+            ? `El formulario tiene ${errorCount} error${errorCount > 1 ? "es" : ""}.`
             : ""}
         </p>
 
         <div className="grid gap-5 sm:grid-cols-2">
           <Input
-            label="Full name"
+            label="Nombre completo"
             name="name"
             autoComplete="name"
-            placeholder="Jane Doe"
+            placeholder="María García"
             value={values.name}
             onChange={handleChange}
             error={errors.name}
@@ -146,11 +143,11 @@ export function ContactForm({ departments }: ContactFormProps) {
             required
           />
           <Input
-            label="Email"
+            label="Correo electrónico"
             name="email"
             type="email"
             autoComplete="email"
-            placeholder="jane@example.com"
+            placeholder="maria@ejemplo.com"
             value={values.email}
             onChange={handleChange}
             error={errors.email}
@@ -158,7 +155,7 @@ export function ContactForm({ departments }: ContactFormProps) {
             required
           />
           <Input
-            label="Phone"
+            label="Teléfono"
             name="phone"
             type="tel"
             autoComplete="tel"
@@ -170,10 +167,10 @@ export function ContactForm({ departments }: ContactFormProps) {
             optional
           />
           <Select
-            label="Department"
+            label="Departamento"
             name="department"
             options={departments}
-            placeholder="Select a department"
+            placeholder="Seleccione un departamento"
             value={values.department}
             onChange={handleChange}
             error={errors.department}
@@ -183,19 +180,19 @@ export function ContactForm({ departments }: ContactFormProps) {
         </div>
 
         <Textarea
-          label="How can we help?"
+          label="¿En qué podemos ayudarle?"
           name="message"
-          placeholder="Briefly describe your symptoms, preferred dates, or question."
+          placeholder="Describa brevemente sus síntomas, fechas de preferencia o consulta."
           value={values.message}
           onChange={handleChange}
           error={errors.message}
-          hint="Please don't include sensitive medical records here."
+          hint="Por favor, no incluya historiales médicos confidenciales aquí."
           disabled={isSubmitting}
           required
         />
 
         <div className="flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-slate-500">For medical emergencies, call 911 immediately.</p>
+          <p className="text-xs text-slate-500">Para emergencias médicas, llame al 911 de inmediato.</p>
           <Button
             type="submit"
             size="lg"
@@ -203,7 +200,7 @@ export function ContactForm({ departments }: ContactFormProps) {
             disabled={isSubmitting}
             className={isSubmitting ? "[&_svg]:animate-spin" : undefined}
           >
-            {isSubmitting ? "Sending…" : "Send message"}
+            {isSubmitting ? "Enviando…" : "Enviar mensaje"}
           </Button>
         </div>
       </form>

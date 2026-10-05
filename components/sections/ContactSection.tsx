@@ -52,7 +52,7 @@ export function ContactSection({ config }: ContactSectionProps) {
             <div className="flex items-center gap-3">
               <IconBadge icon={Clock} tone="emerald" size="sm" />
               <h3 id="hours-title" className="text-base font-semibold text-slate-900">
-                Opening hours
+                Horarios de atención
               </h3>
             </div>
             <dl className="flex flex-col divide-y divide-slate-100">

@@ -20,9 +20,9 @@ export function FooterSection({ config }: FooterSectionProps) {
             </div>
             <p className="max-w-sm text-sm leading-6 text-slate-400">{description}</p>
             <Badge tone="inverse" className="self-start">
-              Open 24/7 for emergencies
+              Abierto 24/7 para emergencias
             </Badge>
-            <ul className="flex gap-3" aria-label="Social and contact links">
+            <ul className="flex gap-3" aria-label="Enlaces sociales y de contacto">
               {socials.map(({ label, href, icon: Icon }) => (
                 <li key={label}>
                   <a
@@ -62,7 +62,7 @@ export function FooterSection({ config }: FooterSectionProps) {
           <p>
             © {year} {legal}
           </p>
-          <p>Information on this site is not a substitute for professional medical advice.</p>
+          <p>La información de este sitio no sustituye el asesoramiento médico profesional.</p>
         </div>
       </Container>
     </footer>

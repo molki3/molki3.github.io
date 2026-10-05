@@ -13,15 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Serenity Medical Center | Compassionate, Modern Care",
+  title: "Centro Médico Serenity | Atención Médica Humana y Moderna",
   description:
-    "Primary care, cardiology, pediatrics, diagnostics, women's health, and 24/7 emergency care. Book an appointment with Serenity Medical Center today.",
+    "Atención primaria, cardiología, pediatría, diagnóstico, salud de la mujer y urgencias 24/7. Solicite su cita en el Centro Médico Serenity hoy mismo.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
