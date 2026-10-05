@@ -25,6 +25,12 @@ export const siteContent = {
   header: {
     brand: "Centro Médico Serenity",
     tagline: "Atención médica humana y moderna",
+    navLinks: [
+      { label: "Inicio", href: "#home" },
+      { label: "Servicios", href: "#services" },
+      { label: "Nosotros", href: "#about" },
+      { label: "Contacto", href: "#contact" },
+    ],
     emergencyPhone: { label: "Urgencias: (555) 010-9111", href: "tel:+15550109111" },
     cta: { label: "Solicitar cita", href: "#contact", variant: "primary" },
   },

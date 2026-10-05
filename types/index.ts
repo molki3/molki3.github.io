@@ -96,6 +96,7 @@ export interface SocialLink extends NavLink {
 export interface HeaderConfig {
   brand: string;
   tagline: string;
+  navLinks?: readonly NavLink[];
   emergencyPhone: NavLink;
   cta: CallToAction;
 }
