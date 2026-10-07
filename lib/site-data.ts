@@ -36,27 +36,27 @@ export const siteContent = {
   },
 
   hero: {
-    badge: "Aceptamos nuevos pacientes",
-    title: "Atención médica que te pone",
-    highlight: "en primer lugar",
+    badge: "Accepting new patients",
+    title: "Healthcare that puts you",
+    highlight: "first",
     description:
-      "Desde chequeos de rutina hasta tratamientos especializados, nuestros médicos certificados brindan atención personalizada y basada en evidencia en un entorno cálido y acogedor.",
-    primaryCta: { label: "Solicitar una cita", href: "#contact", variant: "primary" },
-    secondaryCta: { label: "Explorar servicios", href: "#services", variant: "outline" },
+      "From routine checkups to specialized care, our board-certified physicians deliver personalized, evidence-based treatment in a warm and welcoming environment.",
+    primaryCta: { label: "Schedule an appointment", href: "#contact", variant: "primary" },
+    secondaryCta: { label: "Explore services", href: "#services", variant: "outline" },
     image: {
-      src: placeholder(1200, 900, "Equipo Médico"),
-      alt: "Médicos del Centro Médico Serenity revisando el historial de un paciente",
+      src: placeholder(1200, 900, "Medical Team"),
+      alt: "Serenity Medical Center doctors reviewing a patient's chart",
       width: 1200,
       height: 900,
     },
     stats: [
-      { value: "25+", label: "Años de experiencia" },
-      { value: "60+", label: "Especialistas" },
-      { value: "98%", label: "Satisfacción del paciente" },
+      { value: "25+", label: "Years of experience" },
+      { value: "60+", label: "Specialists" },
+      { value: "98%", label: "Patient satisfaction" },
     ],
     floatingCard: {
-      title: "Atención de urgencias 24/7",
-      description: "Respuesta rápida, todos los días del año.",
+      title: "24/7 Emergency Care",
+      description: "Rapid response, 365 days a year.",
     },
   },
 
